@@ -1,16 +1,9 @@
 import "./style.css";
 
+const REQUIRED = ["name", "email", "message"];
 const result = document.querySelector("#result");
 const form = document.querySelector("form");
-
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const formData = new FormData(form);
-  const data = Object.fromEntries(formData);
-
-  // Pass the data object to the Results function to get HTML! 🚀
-  result.innerHTML = Results(data);
-});
+const submitBtn = form.querySelector('[type="submit"]');
 
 function Results(data) {
   return `<ul class="space-y-1 text-sm">
@@ -20,3 +13,21 @@ function Results(data) {
     </ul>   
     `;
 }
+
+submitBtn.disabled = true; // Start disabled
+
+form.addEventListener("input", () => {
+  // Does EVERY form input field have a non-empty value?
+  REQUIRED.every((field) => form[field].value.trim() !== "")
+    ? (submitBtn.disabled = false) // If yes, enable button
+    : (submitBtn.disabled = true); // If no, disable button
+});
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData);
+
+  // Pass the data object to the Results function to get HTML! 🚀
+  result.innerHTML = Results(data);
+});
