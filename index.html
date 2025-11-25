@@ -9,48 +9,66 @@
   <body>
     <form class="mx-auto max-w-md space-y-4 rounded border p-4">
       <div>
-        <label class="mb-1 block text-sm font-medium" for="name">Name</label>
+        <label class="mb-1 block text-sm font-medium" for="username"
+          >Username</label
+        >
         <input
-          id="name"
-          name="name"
-          required
+          type="text"
+          id="username"
+          name="username"
           class="w-full rounded border px-3 py-2"
+          required
         />
       </div>
 
       <div>
         <label class="mb-1 block text-sm font-medium" for="email">Email</label>
         <input
+          type="email"
           id="email"
           name="email"
-          type="email"
-          required
           class="w-full rounded border px-3 py-2"
+          required
         />
       </div>
 
       <div>
-        <label class="mb-1 block text-sm font-medium" for="message"
-          >Message</label
+        <label class="mb-1 block text-sm font-medium" for="password"
+          >Password</label
         >
-        <textarea
-          id="message"
-          name="message"
-          rows="4"
-          required
+        <input
+          type="password"
+          id="password"
+          name="password"
           class="w-full rounded border px-3 py-2"
-        ></textarea>
+          required
+        />
+      </div>
+
+      <div>
+        <label class="mb-1 block text-sm font-medium" for="password"
+          >Confirm Password</label
+        >
+        <input
+          type="password"
+          id="confirm-password"
+          name="confirm-password"
+          class="w-full rounded border px-3 py-2"
+          required
+        />
       </div>
 
       <button
-        class="rounded bg-blue-600 px-4 py-2 text-white disabled:bg-gray-400"
         type="submit"
+        class="rounded bg-blue-600 px-4 py-2 text-white disabled:bg-gray-400"
       >
         Submit
       </button>
+
+      <output class="text-red-500 italic"></output>
     </form>
 
     <section id="result" class="mt-6"></section>
-    <script type="module" src="/src/form-practice.js"></script>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>

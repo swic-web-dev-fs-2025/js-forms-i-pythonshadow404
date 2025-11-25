@@ -1,6 +1,6 @@
 import "./style.css";
 
-const REQUIRED = ["username", "email", "password", "confirm-password"];
+const REQUIRED = ["name", "email", "message"];
 const result = document.querySelector("#result");
 const form = document.querySelector("form");
 const submitBtn = form.querySelector('[type="submit"]');
@@ -27,17 +27,6 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   const formData = new FormData(form);
   const data = Object.fromEntries(formData);
-
-  // AI assistance
-  const password = document.querySelector("#password");
-  const confirmPassword = document.querySelector("#confirm-password");
-  const output = form.querySelector("output");
-
-  if (password.value !== confirmPassword.value) {
-    output.textContent = "Passwords do not match.";
-  } else {
-    output.textContent = "";
-  }
 
   // Pass the data object to the Results function to get HTML! 🚀
   result.innerHTML = Results(data);
